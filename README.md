@@ -20,14 +20,13 @@ Project Structure
 ├── Jenkinsfile         # Jenkins pipeline configuration
 ├── package.json        # Project metadata and dependencies
 ├── README.md           # You're here!
-└── /screenshots        # (Optional) Task screenshots for submission
+
 
 How It Works
 1. Jenkins pulls the latest code from GitHub.
 2. Runs npm install to install dependencies.
-3. Builds a Docker image for the Node.js app.
-4. Logs into AWS ECR.
-5. Pushes the Docker image to your private ECR repository.
+3. Builds a Docker  for the Node.js app.
+
 
 
 
