@@ -20,7 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "All tests passed!"
-                // Simulate test - in a real app, you'd run actual test scripts
+                
                         }
         }
 
