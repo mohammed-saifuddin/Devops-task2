@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+    environment{
+        APP_NAME = "my-react-app"
+        IMAGE_TAG = "my-react-app:latest"
+    }
 
     
 
@@ -13,13 +18,16 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building Docker Image..."
+                sh 'docker build -t $IMAGE_TAG .'
                 
             }
         }
 
-        stage('Test') {
+        stage('Run container') {
             steps {
                 echo "All tests passed!"
+                sh 'docker rm -f $APP_NAME | true'
+                sh 'docker run -d --name $APP_NAME -p 3000:3000 $IMAGE_TAG'
                 
                         }
         }
@@ -27,6 +35,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo "Deploying Docker container..."
+            
                 
             }
         }
